@@ -168,3 +168,12 @@ section.related.products {
 .wc-proceed-to-checkout a.fusion-update-cart {
 	display: none;
 }
+#flasho .cpf-quantity, #cpf-total-price .cpf-total-price {
+	display: none;
+}
+.tm-extra-product-options .col-2 {
+	width: 20%;
+}
+.tm-extra-product-options .col-4 {
+	width: 40%;
+}

@@ -171,9 +171,9 @@ section.related.products {
 #flasho .cpf-quantity, #flasho .cpf-total-price {
 	display: none;
 }
-.tm-extra-product-options .col-2 {
-	width: 20%;
+#flasho .tm-extra-product-options .col-2 {
+	width: 20% !important;
 }
-.tm-extra-product-options .col-4 {
-	width: 40%;
+#flasho .tm-extra-product-options .col-4 {
+	width: 40% !important;
 }

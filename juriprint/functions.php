@@ -67,14 +67,19 @@ function ajout_suffixe_get_price_html( $price, $product ){
 }*/
 
 
-// dans le panier Afficher préfixe TTC totale
-add_filter( 'woocommerce_cart_totals_order_total_html', 'ajout_suffixe_cart_totals_order_total_html', 100, 2 );
-function ajout_suffixe_cart_totals_order_total_html( $value, $product ){
-    return $value.' TTC';
+// dans le panier Afficher préfixe TTC total
+add_filter( 'woocommerce_cart_total', 'total_custom_price_message' ); 
+function total_custom_price_message( $price ) {
+    $afterPriceSymbol = ' TTC';
+    return $price . $afterPriceSymbol;
 }
 
-
-
+// dans le panier Afficher préfixe HT sous total
+add_filter( 'woocommerce_cart_subtotal', 'subtotal_custom_price_message' );
+function subtotal_custom_price_message( $price ) {
+    $afterPriceSymbol = ' HT';
+    return $price . $afterPriceSymbol;
+}
 
 //--------------Suppression nombre d'exemplaires
 function wc_remove_all_quantity_fields( $return, $product ) {
@@ -89,7 +94,9 @@ add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_s
 
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+// Retour boutique sur la page Mon Compte > Commandes
 function wc_empty_cart_redirect_url() {
     return '/boutique/';
 }
 add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
+

@@ -168,7 +168,7 @@ section.related.products {
 .wc-proceed-to-checkout a.fusion-update-cart {
 	display: none;
 }
-#flasho .cpf-quantity, #cpf-total-price .cpf-total-price {
+#flasho .cpf-quantity, #flasho .cpf-total-price {
 	display: none;
 }
 .tm-extra-product-options .col-2 {

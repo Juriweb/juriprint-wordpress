@@ -165,3 +165,6 @@ dd.tm-options-totals {
 section.related.products {
 	display: none;
 }
+.wc-proceed-to-checkout a.fusion-update-cart {
+	display: none;
+}

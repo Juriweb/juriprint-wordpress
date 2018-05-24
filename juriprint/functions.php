@@ -100,3 +100,10 @@ function wc_empty_cart_redirect_url() {
 }
 add_filter( 'woocommerce_return_to_shop_redirect', 'wc_empty_cart_redirect_url' );
 
+// Rajout d'un label sur le complément d'adresse
+add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
+function custom_override_default_address_fields( $address_fields ) {
+     $address_fields['address_2']['label'] = 'Compl&eacute;ment d&rsquo;adresse';
+     return $address_fields;
+}
+

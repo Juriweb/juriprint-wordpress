@@ -1,0 +1,167 @@
+/*
+Theme Name: Juriprint
+Description: Thème enfant pour Avada
+Author: Juriprint
+Template: Avada
+Text Domain:  juriprint
+*/
+
+video {  
+	display:block;
+	margin: 1% auto;
+	width:100%; 
+	max-width:1280px; 
+	height:auto; 
+	border:1px solid #ededed;
+}
+li.active a{
+	font-weight: bold;
+	font-size: 1.1em;
+	text-decoration: underline;
+}
+.required{
+	color:#F00 !important;
+}
+/*--------------------SLIDER---------------------*/
+/*----------------------------------------------*/
+
+.tfs-slider .flex-control-nav {
+    bottom: 0 !important;
+}
+.flex-control-paging li a {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.flex-control-paging li a.flex-active {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+/*masquer ce genre d'infos en dessous du produit Catégories : Cartes de visite, Huissier, Pack carte de visite
+Étiquettes : carte de visite, huissier*/
+/* hide SKU on product meta section */
+.product_meta .sku_wrapper {
+	display:none;
+}
+/* hide product categories on product meta section */
+.product_meta .posted_in {
+	display:none;
+}
+/* hide product tags on product meta section */
+.product_meta .tagged_as {
+	display:none;
+}
+
+/* hide quantité désirée et détails en dessous produits */
+.product .product-buttons, .product-excerpt .product-buttons{
+	display:none !important;
+}
+
+/*diminuer taille titre produit */
+.product-details-container .product-title{
+		font-size: 14px;
+    line-height: 21px;
+}
+
+/*woocommerce-tabs*/
+.woocommerce-tabs {
+    padding-top: 0 !important;
+}
+
+/*numéro de tel et mail  en haut sur une ligne désormais */
+@media only screen and (max-width: 800px){
+	.fusion-contact-info {
+			padding: 1em 0 !important;
+	}
+}
+/*----------- Panier dernière étape ------------*/
+/*----------------------------------------------*/
+.cart_totals .order-total .includes_tax .amount, .checkout .includes_tax .amount, .avada-order-details .shop_table.order_details .amount + .amount{
+	color:#666 !important;
+	font-size: 1em !important;
+}
+/*détail commande*/
+dt[class|="variation"]{
+	font-weight:bold;
+}
+.checkout .shop_table tfoot td {
+    white-space: nowrap;
+}
+.shop_table .variation dt, .shop_table .variation dd {
+    display: block !important; 
+}
+.order-total .woocommerce-price-suffix{
+	display: none;
+}
+.coupon input.fusion-button {
+	width: 25%;
+	padding: 10px 0 !important;
+}
+
+
+/*---------------- page produit ------------------*/
+/*----------------------------------------------*/
+
+form.cart{
+	margin: 20px 0 !important;
+	
+}
+.tm-box {
+	background: -webkit-linear-gradient(to top, rgb(234, 234, 234) 30%, rgb(247, 247, 247) 70%);
+	background: linear-gradient(to top, rgb(234, 234, 234) 30%, rgb(247, 247, 247) 70%);
+	margin:0;
+	padding-bottom:0;
+}
+.tm-collapse{
+	background: -webkit-linear-gradient(to top, rgb(234, 234, 234) 20%, rgb(247, 247, 247) 50%);
+	background: linear-gradient(to top, rgb(234, 234, 234) 20%, rgb(247, 247, 247) 50%);
+}
+/*pour supprimer le retour et éviter de casser les colonnes qui s'affichent selon le choix   */
+.tm-extra-product-options .cpfclear{
+	display: none;
+}
+/*Select page produit*/
+.tm-epo-field-label.tm-left, .tm-epo-field-label.tm-right {
+	white-space: nowrap;
+	width: 45%;
+	max-width:none;
+}
+.tm-epo-field-label.tm-left + .tm-extra-product-options-container, .tm-epo-field-label.tm-right + .tm-extra-product-options-container {
+	width: 52% !important;
+	max-width:none;
+}
+
+.avada-select-parent select {
+    padding: 9px 5px;
+}
+.tm-extra-product-options .tmcp-textfield.tm-epo-field {
+    width: 100%;
+}
+/* -liste des images à cocher- */
+/*.tm-extra-product-options ul.tmcp-elements.use_images_containter li.tmcp-field-wrap {*/
+.tm-extra-product-options ul.tmcp-elements.use_images_containter li.tmcp-field-wrap{
+    display: inline-block;
+		float:none;
+		width:auto;
+		padding: 1em 0 0;
+}
+.tm-extra-product-options .checkbox_image{
+	height: 40px;
+	
+}
+.tm-floating-box,
+.single-product .product .summary-container p.price,
+.post-content.woocommerce-product-details__short-description hr {
+	display: none !important;
+}
+dt.tm-options-totals,
+dd.tm-options-totals {
+	display: none;
+}
+.post-content.woocommerce-product-details__short-description {
+	padding-top: 100px;
+    float: none;
+    clear: both
+}
+section.related.products {
+	display: none;
+}

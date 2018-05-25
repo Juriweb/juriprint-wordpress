@@ -218,6 +218,10 @@ dt[class|="variation"]{
 	padding: 10px 0 !important;
 }
 
+/*Message : Vous avez déjà un compte ? Cliquez ici pour vous connecter*/
+.woocommerce-checkout .woocommerce-info{
+	background-color: #f6f6f6;
+}
 
 /*---------------- page MON COMPTE ------------------*/
 /*----------------------------------------------*/

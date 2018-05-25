@@ -29,15 +29,7 @@ li.active a{
 	background-color: #f6f6f6;
 	padding-right: 10px;
 }
-/*--------------------PANIER---------------------*/
-/*----------------------------------------------*/
-.tm-cart-edit-options {
-    font-size: inherit;
-    font-weight: bold;
-    margin-left: 5px;
-    padding: 5px 10px;
-    border: 1px solid;
-}
+
 /*--------------------SLIDER---------------------*/
 /*----------------------------------------------*/
 
@@ -89,37 +81,14 @@ li.active a{
 			padding: 1em 0 !important;
 	}
 }
-/*----------- Page Paiement ------------*/
-/*----------------------------------------------*/
-.cart_totals .order-total .includes_tax .amount, .checkout .includes_tax .amount, .avada-order-details .shop_table.order_details .amount + .amount{
-	color:#666 !important;
-	font-size: 1em !important;
-}
-/*détail commande*/
-dt[class|="variation"]{
-	font-weight:bold;
-}
-.checkout .shop_table tfoot td {
-    white-space: nowrap;
-}
-.shop_table .variation dt, .shop_table .variation dd {
-    display: block !important; 
-}
-.order-total .woocommerce-price-suffix{
-	display: none;
-}
-.coupon input.fusion-button {
-	width: 25%;
-	padding: 10px 0 !important;
-}
 
 
-/*---------------- page produit ------------------*/
+/*---------------- page PRODUIT ------------------*/
 /*----------------------------------------------*/
+
 /*si pas de produit trouvé pour la variation demandée*/
-.wc-no-matching-variations {
+.wc-no-matching-variations.woocommerce-info  {
 	color:#900;
-	
 }
 form.cart{
 	margin: 20px 0 !important;
@@ -178,15 +147,27 @@ dt.tm-options-totals,
 dd.tm-options-totals {
 	display: none;
 }
+
 /* Position du texte description sous la photo produit  */
 .post-content.woocommerce-product-details__short-description {
 	padding-top: 100px;
     float: none;
     clear: both
 }
+
 /* Hide section produits reliés */
 section.related.products {
 	display: none;
+}
+
+/*--------------------Page PANIER---------------------*/
+/*----------------------------------------------*/
+.tm-cart-edit-options {
+    font-size: inherit;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid;
 }
 /* Hide btn MAJ panier */
 .wc-proceed-to-checkout a.fusion-update-cart {
@@ -208,6 +189,35 @@ section.related.products {
 .woocommerce-cart-form .product-info .product-title {
     pointer-events: none;
 }
+
+
+/*------------------ Page PAIEMENT ------------------*/
+/*----------------------------------------------*/
+.cart_totals .order-total .includes_tax .amount, .checkout .includes_tax .amount, .avada-order-details .shop_table.order_details .amount + .amount{
+	color:#666 !important;
+	font-size: 1em !important;
+}
+/*détail commande*/
+dt[class|="variation"]{
+	font-weight:bold;
+}
+.checkout .shop_table tfoot td {
+    white-space: nowrap;
+}
+.shop_table .variation dt, .shop_table .variation dd {
+    display: block !important; 
+}
+.order-total .woocommerce-price-suffix{
+	display: none;
+}
+.coupon input.fusion-button {
+	width: 25%;
+	padding: 10px 0 !important;
+}
+
+
+/*---------------- page MON COMPTE ------------------*/
+/*----------------------------------------------*/
 /* Taille des inputs text sur pages adresse */ 
 form.checkout #billing_address_1_field,
 form.checkout #billing_postcode_field,

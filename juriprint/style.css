@@ -89,7 +89,7 @@ li.active a{
 			padding: 1em 0 !important;
 	}
 }
-/*----------- Panier dernière étape ------------*/
+/*----------- Page Paiement ------------*/
 /*----------------------------------------------*/
 .cart_totals .order-total .includes_tax .amount, .checkout .includes_tax .amount, .avada-order-details .shop_table.order_details .amount + .amount{
 	color:#666 !important;
@@ -116,7 +116,11 @@ dt[class|="variation"]{
 
 /*---------------- page produit ------------------*/
 /*----------------------------------------------*/
-
+/*si pas de produit trouvé pour la variation demandée*/
+.wc-no-matching-variations {
+	color:#900;
+	
+}
 form.cart{
 	margin: 20px 0 !important;
 	

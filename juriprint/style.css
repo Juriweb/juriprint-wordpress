@@ -218,10 +218,6 @@ form.checkout #shipping_phone_field {
     float: left;
     width: 48%;
 }
-form.checkout #billing_country_field,
-form.checkout #shipping_country_field {
-	display: none;
-}
 form.checkout #billing_address_2_field,
 form.checkout #billing_city_field,
 form.checkout #shipping_address_2_field,
@@ -230,4 +226,9 @@ form.checkout #billing_email_field,
 form.checkout #shipping_email_field {
 	float: right;
     width: 48%;
+}
+/* Hide pays france sur pages adresse */
+form.checkout #billing_country_field,
+form.checkout #shipping_country_field {
+	display: none;
 }

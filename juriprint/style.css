@@ -86,6 +86,9 @@ li.active a{
 /*---------------- page PRODUIT ------------------*/
 /*----------------------------------------------*/
 
+body.single-product  #content > .woocommerce-message:first-child{
+	color:#8bb93a;
+}
 /*si pas de produit trouvé pour la variation demandée*/
 .wc-no-matching-variations.woocommerce-info  {
 	color:#900;

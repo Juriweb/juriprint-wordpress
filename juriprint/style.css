@@ -161,42 +161,50 @@ form.cart{
 		padding: 1em 0 0;
 }
 .tm-extra-product-options .checkbox_image{
-	height: 40px;
-	
+	height: 40px;	
 }
+/* Hide boite flottante et prix sur page produit*/
 .tm-floating-box,
 .single-product .product .summary-container p.price,
 .post-content.woocommerce-product-details__short-description hr {
 	display: none !important;
 }
+/* Hide prix total sur page produit*/
 dt.tm-options-totals,
 dd.tm-options-totals {
 	display: none;
 }
+/* Position du texte description sous la photo produit  */
 .post-content.woocommerce-product-details__short-description {
 	padding-top: 100px;
     float: none;
     clear: both
 }
+/* Hide section produits reliés */
 section.related.products {
 	display: none;
 }
+/* Hide btn MAJ panier */
 .wc-proceed-to-checkout a.fusion-update-cart {
 	display: none;
 }
+/* Hide colonnes qté + total sur popup détails personnalisation */
 #flasho .cpf-quantity, #flasho .cpf-total-price {
 	display: none;
 }
+/* tailles des colonnes sur popup détails personnalisation */
 #flasho .tm-extra-product-options .col-2 {
 	width: 20% !important;
 }
 #flasho .tm-extra-product-options .col-4 {
 	width: 40% !important;
 }
+/* Disable <a> link sur thumbnail et titre produit sur page panier */ 
 .woocommerce-cart-form .product-thumbnail,
 .woocommerce-cart-form .product-info .product-title {
     pointer-events: none;
 }
+/* Taille des inputs text sur pages adresse */ 
 form.checkout #billing_address_1_field,
 form.checkout #billing_postcode_field,
 form.checkout #shipping_address_1_field,

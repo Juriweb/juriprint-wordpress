@@ -23,6 +23,21 @@ li.active a{
 	color:#F00 !important;
 }
 
+/*---------------Style en Commun-----------------*/
+/*----------------------------------------------*/
+.woocommerce-message{
+	background-color: #f6f6f6;
+	padding-right: 10px;
+}
+/*--------------------PANIER---------------------*/
+/*----------------------------------------------*/
+.tm-cart-edit-options {
+    font-size: inherit;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: 1px solid;
+}
 /*--------------------SLIDER---------------------*/
 /*----------------------------------------------*/
 

@@ -68,6 +68,7 @@ function ajout_suffixe_get_price_html( $price, $product ){
 
 
 // dans le panier Afficher préfixe TTC total
+/*
 add_filter( 'woocommerce_cart_total', 'total_custom_price_message' ); 
 function total_custom_price_message( $price ) {
     $afterPriceSymbol = ' TTC';
@@ -80,6 +81,7 @@ function subtotal_custom_price_message( $price ) {
     $afterPriceSymbol = ' HT';
     return $price . $afterPriceSymbol;
 }
+*/
 
 //--------------Suppression nombre d'exemplaires
 function wc_remove_all_quantity_fields( $return, $product ) {

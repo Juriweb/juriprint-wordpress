@@ -11,9 +11,35 @@
 		}
 		?>
 		</td>
-		<td class="shop-info">
-			<div class="shop-name"><h3><?php $this->shop_name(); ?></h3></div>
-			<div class="shop-address"><?php $this->shop_address(); ?></div>
+		<td class="order-data">
+			<table>
+				<?php do_action( 'wpo_wcpdf_before_order_data', $this->type, $this->order ); ?>
+				<?php if ( isset($this->settings['display_number']) ) { ?>
+				<tr class="invoice-number">
+					<th>Numéro de facture :</th>
+					<td><?php $this->invoice_number(); ?></td>
+				</tr>
+				<?php } ?>
+				<?php if ( isset($this->settings['display_date']) ) { ?>
+				<tr class="invoice-date">
+					<th>Date de la facture :</th>
+					<td><?php $this->invoice_date(); ?></td>
+				</tr>
+				<?php } ?>
+				<tr class="order-number">
+					<th>Numéro de commande :</th>
+					<td><?php $this->order_number(); ?></td>
+				</tr>
+				<tr class="order-date">
+					<th>Date de la commande :</th>
+					<td><?php $this->order_date(); ?></td>
+				</tr>
+				<tr class="payment-method">
+					<th>Méthode de paiement :</th>
+					<td><?php $this->payment_method(); ?></td>
+				</tr>
+				<?php do_action( 'wpo_wcpdf_after_order_data', $this->type, $this->order ); ?>
+			</table>			
 		</td>
 	</tr>
 </table>
@@ -27,66 +53,27 @@
 <table class="order-data-addresses">
 	<tr>
 		<td class="address billing-address">
-			<!-- <h3><?php _e( 'Billing Address:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3> -->
+			<h3>Adresse de facturation :</h3>
 			<?php do_action( 'wpo_wcpdf_before_billing_address', $this->type, $this->order ); ?>
 			<?php $this->billing_address(); ?>
 			<?php do_action( 'wpo_wcpdf_after_billing_address', $this->type, $this->order ); ?>
-			<?php if ( isset($this->settings['display_email']) ) { ?>
-			<div class="billing-email"><?php $this->billing_email(); ?></div>
-			<?php } ?>
-			<?php if ( isset($this->settings['display_phone']) ) { ?>
-			<div class="billing-phone"><?php $this->billing_phone(); ?></div>
-			<?php } ?>
 		</td>
-		<td class="address shipping-address">
-			<?php if ( isset($this->settings['display_shipping_address']) && $this->ships_to_different_address()) { ?>
-			<h3><?php _e( 'Ship To:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
+		<td class="address shipping-address">			
+			<h3>Livrer à :</h3>
 			<?php do_action( 'wpo_wcpdf_before_shipping_address', $this->type, $this->order ); ?>
 			<?php $this->shipping_address(); ?>
 			<?php do_action( 'wpo_wcpdf_after_shipping_address', $this->type, $this->order ); ?>
-			<?php } ?>
-		</td>
-		<td class="order-data">
-			<table>
-				<?php do_action( 'wpo_wcpdf_before_order_data', $this->type, $this->order ); ?>
-				<?php if ( isset($this->settings['display_number']) ) { ?>
-				<tr class="invoice-number">
-					<th><?php _e( 'Invoice Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $this->invoice_number(); ?></td>
-				</tr>
-				<?php } ?>
-				<?php if ( isset($this->settings['display_date']) ) { ?>
-				<tr class="invoice-date">
-					<th><?php _e( 'Invoice Date:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $this->invoice_date(); ?></td>
-				</tr>
-				<?php } ?>
-				<tr class="order-number">
-					<th><?php _e( 'Order Number:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $this->order_number(); ?></td>
-				</tr>
-				<tr class="order-date">
-					<th><?php _e( 'Order Date:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $this->order_date(); ?></td>
-				</tr>
-				<tr class="payment-method">
-					<th><?php _e( 'Payment Method:', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-					<td><?php $this->payment_method(); ?></td>
-				</tr>
-				<?php do_action( 'wpo_wcpdf_after_order_data', $this->type, $this->order ); ?>
-			</table>			
 		</td>
 	</tr>
 </table>
 
 <?php do_action( 'wpo_wcpdf_before_order_details', $this->type, $this->order ); ?>
 
-<table class="order-details">
+<table class="container order-details">
 	<thead>
 		<tr>
-			<th class="product"><?php _e('Product', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-			<th class="quantity"><?php _e('Quantity', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
-			<th class="price"><?php _e('Price', 'woocommerce-pdf-invoices-packing-slips' ); ?></th>
+			<th class="product">Produits</th>						
+			<th class="price">Prix HT</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -104,24 +91,25 @@
 				</dl>
 				<?php do_action( 'wpo_wcpdf_after_item_meta', $this->type, $item, $this->order  ); ?>
 			</td>
-			<td class="quantity"><?php echo $item['quantity']; ?></td>
 			<td class="price"><?php echo $item['order_price']; ?></td>
 		</tr>
 		<?php endforeach; endif; ?>
 	</tbody>
-	<tfoot>
+</table>
+<table class="container order-details-footer">
 		<tr class="no-borders">
-			<td class="no-borders">
+			<td class="no-borders customer-notes-cell">
 				<div class="customer-notes">
 					<?php do_action( 'wpo_wcpdf_before_customer_notes', $this->type, $this->order ); ?>
 					<?php if ( $this->get_shipping_notes() ) : ?>
-						<h3><?php _e( 'Customer Notes', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
+						<h4>Notes du client :</h4>
 						<?php $this->shipping_notes(); ?>
 					<?php endif; ?>
 					<?php do_action( 'wpo_wcpdf_after_customer_notes', $this->type, $this->order ); ?>
 				</div>				
 			</td>
-			<td class="no-borders" colspan="2">
+			<td class="separator"></td>
+			<td class="no-borders totals-cell">
 				<table class="totals">
 					<tfoot>
 						<?php foreach( $this->get_woocommerce_totals() as $key => $total ) : ?>
@@ -135,7 +123,6 @@
 				</table>
 			</td>
 		</tr>
-	</tfoot>
 </table>
 
 <?php do_action( 'wpo_wcpdf_after_order_details', $this->type, $this->order ); ?>

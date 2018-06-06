@@ -16,9 +16,6 @@
  * @version 2.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
 
 // Load colors
 $bg              = get_option( 'woocommerce_email_background_color' );
@@ -53,7 +50,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 #template_header {
 	background-color: <?php echo esc_attr( $base ); ?>;
 	border-radius: 3px 3px 0 0 !important;
-	color: <?php echo esc_attr( $base_text ); ?>;
+	color: #ffffff !important;
 	border-bottom: 0;
 	font-weight: bold;
 	line-height: 100%;
@@ -63,7 +60,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 #template_header h1,
 #template_header h1 a {
-	color: <?php echo esc_attr( $base_text ); ?>;
+	color: #ffffff !important;
 }
 
 #template_footer td {
@@ -73,7 +70,7 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 
 #template_footer #credit {
 	border:0;
-	color: <?php echo esc_attr( $base_lighter_40 ); ?>;
+	color: <?php echo esc_attr( $text ); ?> !important;
 	font-family: Arial;
 	font-size:12px;
 	line-height:125%;
@@ -133,7 +130,8 @@ $text_lighter_20 = wc_hex_lighter( $text, 20 );
 .address {
 	padding:12px 12px 0;
 	color: <?php echo esc_attr( $text_lighter_20 ); ?>;
-	border: 1px solid <?php echo esc_attr( $body_darker_10 ); ?>;
+	border: 0px solid <?php echo esc_attr( $body_darker_10 ); ?> !important;
+	font-style: normal !important;
 }
 
 .text {

@@ -1,4 +1,9 @@
 /* Main Body */
+
+/* 	couleurs 
+	vert : #99C569; 
+*/
+
 @page {
 	margin-top: 1cm;
 	margin-bottom: 3cm;
@@ -14,52 +19,47 @@ body {
 	font-size: 9pt;
 	line-height: 100%; /* fixes inherit dompdf bug */
 }
-
 h1, h2, h3, h4 {
 	font-weight: bold;
 	margin: 0;
 }
-
 h1 {
 	font-size: 16pt;
 	margin: 5mm 0;
 }
-
 h2 {
 	font-size: 14pt;
 }
-
-h3, h4 {
+h3 {
 	font-size: 9pt;
+	color: black ;
 }
-
-
-ol,
-ul {
+h4 {
+	font-size: 9pt;
+	background: #99C569;
+	color: white;
+	padding: 0.5em 1em;
+	margin-bottom: 1em;
+}
+ol, ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-
-li,
-ul {
+li, ul {
 	margin-bottom: 0.75em;
 }
-
 p {
 	margin: 0;
 	padding: 0;
 }
-
 p + p {
 	margin-top: 1.25em;
 }
-
 a { 
 	border-bottom: 1px solid; 
 	text-decoration: none; 
 }
-
 /* Basic Table Styling */
 table {
 	border-collapse: collapse;
@@ -69,17 +69,14 @@ table {
 	margin: 0;
 	padding: 0;
 }
-
 th, td {
 	vertical-align: top;
 	text-align: left;
 }
-
 table.container {
 	width:100%;
 	border: 0;
 }
-
 tr.no-borders,
 td.no-borders {
 	border: 0 !important;
@@ -88,112 +85,108 @@ td.no-borders {
 	padding: 0 !important;
 	width: auto;
 }
-
 /* Header */
 table.head {
 	margin-bottom: 12mm;
 }
-
 td.header img {
-	max-height: 3cm;
+	height: auto;
 	width: auto;
+	max-width: 6cm;
 }
-
 td.header {
 	font-size: 16pt;
 	font-weight: 700;
+	width: 50% !important;
+	max-width: 50% !important;
 }
-
-td.shop-info {
-	width: 40%;
+td.shop-info, 
+td.order-data,  {
+	width: 50% !important;
+	max-width: 50% !important;
 }
 .document-type-label {
 	text-transform: uppercase;
 }
-
 /* Recipient addressses & order data */
 table.order-data-addresses {
 	width: 100%;
 	margin-bottom: 10mm;
 }
-
 td.order-data {
-	width: 40%;
+	width: 50%;
 }
-
 .invoice .shipping-address {
 	width: 30%;
 }
-
 .packing-slip .billing-address {
 	width: 30%;
 }
-
 td.order-data table th {
 	font-weight: normal;
 	padding-right: 2mm;
 }
-
 /* Order details */
 table.order-details {
-	width:100%;
-	margin-bottom: 8mm;
+	width:100% !important;
 }
-
-.quantity,
+table.order-details thead,
+table.order-details tbody,
+table.order-details tr, {
+	width:100% !important;
+}
+table.order-details tr {
+	border: 1px #ccc solid;	
+}
+table.order-details .product {
+	width:80% !important;
+}
+table.order-details .price {
+	width:20% !important;
+}
+table.order-details th.price ,
+table.order-details td.price {
+	text-align: right;
+}
 .price {
 	width: 20%;
 }
-
 .order-details tr {
 	page-break-inside: always;
 	page-break-after: auto;	
 }
-
 .order-details td,
 .order-details th {
-	border-bottom: 1px #ccc solid;
-	border-top: 1px #ccc solid;
-	padding: 0.375em;
+	border-bottom: 1px #99C569 solid;
+	border-top: 1px #99C569 solid;
+	padding: 0.5em 1em ;
 }
-
 .order-details th {
 	font-weight: bold;
 	text-align: left;
 }
-
 .order-details thead th {
 	color: white;
-	background-color: black;
-	border-color: black;
+	background-color: #99C569;
+	border-color: #99C569;
 }
-
 /* product bundles compatibility */
-.order-details tr.bundled-item td.product {
-	padding-left: 5mm;
-}
-
 .order-details tr.product-bundle td,
 .order-details tr.bundled-item td {
 	border: 0;
 }
-
-
 /* item meta formatting for WC2.6 and older */
 dl {
 	margin: 4px 0;
 }
-
 dt, dd, dd p {
 	display: inline;
 	font-size: 7pt;
 	line-height: 7pt;
 }
-
 dd {
 	margin-left: 5px;
 }
-
 dd:after {
 	content: "\A";
 	white-space: pre;
@@ -209,42 +202,44 @@ dd:after {
 }
 .wc-item-meta li {
 	margin: 0;
-	margin-left: 5px;
+	margin-left: 3em;
 }
-
 /* Notes & Totals */
-.customer-notes {
+table.order-details-footer {
 	margin-top: 5mm;
 }
-
-table.totals {
-	width: 100%;
-	margin-top: 5mm;
+table.order-details-footer tr td.customer-notes-cell {
+	width:55% !important;
 }
-
+table.order-details-footer tr td.separator {
+	width:10% !important;
+}
+table.order-details-footer tr td.totals-cell {
+	width:35% !important;
+}
 table.totals th,
 table.totals td {
 	border: 0;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #99C569;
+	border-bottom: 1px solid #99C569;
+	padding: 0.5em 1em
 }
-
 table.totals th.description,
 table.totals td.price {
 	width: 50%;
 }
-
+table.totals td.price {
+	text-align:right;
+}
 table.totals tr.order_total td,
 table.totals tr.order_total th {
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #99C569;
+	border-bottom: 2px solid #99C569;
 	font-weight: bold;
 }
-
 table.totals tr.payment_method {
 	display: none;
 }
-
 /* Footer Imprint */
 #footer {
 	position: absolute;
@@ -253,11 +248,10 @@ table.totals tr.payment_method {
 	right: 0;
 	height: 2cm; /* if you change the footer height, don't forget to change the bottom (=negative height) and the @page margin-bottom as well! */
 	text-align: center;
-	border-top: 0.1mm solid gray;
+	border-top: 0.1mm solid #99C569;
 	margin-bottom: 0;
 	padding-top: 2mm;
 }
-
 /* page numbers */
 .pagenum:before {
 	content: counter(page);

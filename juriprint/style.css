@@ -22,7 +22,36 @@ li.active a{
 .required{
 	color:#F00 !important;
 }
-
+a, button {
+	transition-property: all;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+#comment-input .placeholder,
+#comment-input input,
+#comment-textarea .placeholder,
+#comment-textarea textarea,
+#wrapper .search-table .search-field input,
+.avada-select .select2-container .select2-choice,
+.avada-select .select2-container .select2-choice2, 
+.avada-select-parent select, 
+.chzn-container .chzn-drop, 
+.chzn-container-single .chzn-single, 
+.comment-form-comment textarea, 
+.input-text, 
+.main-nav-search-form input, 
+.post-password-form label input[type="password"], 
+.search-page-search-form input, 
+input.s, 
+input.s .placeholder, 
+input[type="email"], 
+input[type="number"], 
+input[type="password"], 
+input[type="text"], 
+select, 
+textarea {
+	color: #8bb93a !important;
+}
 /*---------------Style en Commun-----------------*/
 /*----------------------------------------------*/
 .woocommerce-message{
@@ -30,6 +59,69 @@ li.active a{
 	padding-right: 10px;
 }
 
+/*- PAGE CONTENU -*/
+/*----------------*/
+a.bright-effect img {
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+	display: block;
+	margin-bottom: 1rem;
+} 
+ a.bright-effect:hover img {
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+a.bright-effect {
+	text-align: center;
+	color: #333333;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+a.bright-effect:hover  {
+	color: #99C569;
+}
+
+/*--------------------FUSION MENU---------------------*/
+/*----------------------------------------------*/
+.fusion-secondary-header {
+	background-color:#99C569;
+}
+.fusion-secondary-menu .fusion-menu-cart-checkout a,
+.fusion-secondary-menu .fusion-menu-cart-checkout a:before {
+	color: white !important;
+}
+.fusion-secondary-menu .fusion-menu-cart-checkout {
+	padding: 0;
+}
+.fusion-secondary-menu .fusion-menu-cart-checkout {
+	background-color:#99C569 !important;
+}
+.fusion-secondary-menu .fusion-menu-cart-checkout .fusion-menu-cart-link,
+.fusion-secondary-menu .fusion-menu-cart-checkout .fusion-menu-cart-checkout-link {
+	background-color:#99C569;
+	width: 50%;
+	max-width: 50%;
+	float: left;
+	padding: 0 8px;
+	transition-property: all;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+}
+.fusion-secondary-menu .fusion-menu-cart-checkout .fusion-menu-cart-link:hover ,
+.fusion-secondary-menu .fusion-menu-cart-checkout .fusion-menu-cart-checkout-link:hover {
+	background-color:#8bb93a;
+}
+.fusion-secondary-menu-icon {
+	color: white !important;
+}
+.fusion-secondary-menu .fusion-custom-menu-item-contents {
+    width: 100%;
+}
 /*--------------------SLIDER---------------------*/
 /*----------------------------------------------*/
 
@@ -142,6 +234,7 @@ form.cart{
 /* Hide boite flottante et prix sur page produit*/
 .tm-floating-box,
 .single-product .product .summary-container p.price,
+.single-product .product .summary-container .woocommerce-variation-price span.price,
 .post-content.woocommerce-product-details__short-description hr {
 	display: none !important;
 }
@@ -150,7 +243,17 @@ dt.tm-options-totals,
 dd.tm-options-totals {
 	display: none;
 }
-
+/* Pris HT */
+.woocommerce-Price-amount:after {
+	content:'HT';
+	display: inline-block;
+	margin-left:2px;
+	font-size: 0.7rem;
+}
+form.woocommerce-cart-form .woocommerce-Price-amount:after,
+.cart-collaterals .cart_totals .woocommerce-Price-amount:after {
+	display: none;
+}
 /* Position du texte description sous la photo produit  */
 .post-content.woocommerce-product-details__short-description {
 	padding-top: 100px;
@@ -163,8 +266,15 @@ section.related.products {
 	display: none;
 }
 
+/* couleur titres description sous la photo + zones de saisie page produit */
+.post-content.woocommerce-product-details__short-description table strong, 
+table.variations select {
+	color: #99C569 ;
+}
+
 /*--------------------Page PANIER---------------------*/
 /*----------------------------------------------*/
+
 .tm-cart-edit-options {
     font-size: inherit;
     font-weight: bold;
@@ -192,10 +302,21 @@ section.related.products {
 .woocommerce-cart-form .product-info .product-title {
     pointer-events: none;
 }
-
-
+/* Hide articles dans le panier en anglais */
+form.woocommerce-cart-form .woocommerce-content-box.full-width.clearfix h2 {
+	display: none;
+}
+/* Hide colonne prix  */
+form.woocommerce-cart-form td.product-price,
+form.woocommerce-cart-form th.product-price {
+	display: none;
+}
+form.woocommerce-cart-form .shop_table .product-name {
+	width: 70%;
+}
 /*------------------ Page PAIEMENT ------------------*/
 /*----------------------------------------------*/
+
 .cart_totals .order-total .includes_tax .amount, .checkout .includes_tax .amount, .avada-order-details .shop_table.order_details .amount + .amount{
 	color:#666 !important;
 	font-size: 1em !important;
@@ -223,29 +344,193 @@ dt[class|="variation"]{
 	background-color: #f6f6f6;
 }
 
+/* steps */
+.payment-step-number h3 {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: white !important;
+    background: #99c569;
+    border-radius: 50%;
+    padding: 15px 12px !important;
+    line-height: 5px !important;
+    display: inline-block !important;
+}
+.payment-step-text {
+	text-transform: uppercase !important;
+	margin-bottom: 30px !important;
+}
+
 /*---------------- page MON COMPTE ------------------*/
 /*----------------------------------------------*/
+
 /* Taille des inputs text sur pages adresse */ 
 form.checkout #billing_address_1_field,
 form.checkout #billing_postcode_field,
 form.checkout #shipping_address_1_field,
 form.checkout #shipping_postcode_field,
 form.checkout #billing_phone_field,
-form.checkout #shipping_phone_field {
+form.checkout #shipping_phone_field,
+.woocommerce-address-fields #billing_first_name_field,
+.woocommerce-address-fields #billing_address_1_field,
+.woocommerce-address-fields #billing_postcode_field,
+.woocommerce-address-fields #billing_phone_field,
+.woocommerce-address-fields #shipping_first_name_field,
+.woocommerce-address-fields #shipping_address_1_field,
+.woocommerce-address-fields #shipping_postcode_field,
+.woocommerce-address-fields #shipping_phone_field {
     float: left;
     width: 48%;
 }
+
 form.checkout #billing_address_2_field,
 form.checkout #billing_city_field,
 form.checkout #shipping_address_2_field,
 form.checkout #shipping_city_field,
 form.checkout #billing_email_field,
-form.checkout #shipping_email_field {
+form.checkout #shipping_email_field,
+.woocommerce-address-fields #billing_last_name_field,
+.woocommerce-address-fields #billing_address_2_field,
+.woocommerce-address-fields #billing_city_field,
+.woocommerce-address-fields #billing_email_field,
+.woocommerce-address-fields #shipping_last_name_field,
+.woocommerce-address-fields #shipping_address_2_field,
+.woocommerce-address-fields #shipping_city_field,
+.woocommerce-address-fields #shipping_email_field {
 	float: right;
     width: 48%;
 }
+
+.woocommerce-address-fields #billing_company_field,
+.woocommerce-address-fields #shipping_company_field {
+    float: left;
+    width: 100%;
+}
+
 /* Hide pays france sur pages adresse */
 form.checkout #billing_country_field,
-form.checkout #shipping_country_field {
+form.checkout #shipping_country_field,
+.woocommerce-address-fields #billing_country_field,
+.woocommerce-address-fields #shipping_country_field {
 	display: none;
+}
+
+/* Taille des inputs text sur page details du compte */ 
+form.woocommerce-EditAccountForm .woocommerce-form-row--first.form-row-first {
+    float: left;
+    width: 48%;
+}
+
+form.woocommerce-EditAccountForm .woocommerce-form-row--last.form-row-last {
+	float: right;
+    width: 48%;
+}
+
+/*---------------- FOOTER ------------------*/
+/*------------------------------------------*/
+
+/* Hide details panier */
+footer ul.woocommerce-mini-cart .variation {
+	display: none;
+}
+
+/* Reorder HTML liste produits */
+footer ul.woocommerce-mini-cart li.woocommerce-mini-cart-item img.wp-post-image {
+	float: left;
+	margin-left: 0;
+	margin-right: 15px;
+}
+footer ul.woocommerce-mini-cart li.woocommerce-mini-cart-item a.remove_from_cart_button {
+	margin-right: 10px;
+	line-height: 1em;
+	font-size: 2em;
+	color: red;
+	float: left !important;
+}
+footer ul.woocommerce-mini-cart li.woocommerce-mini-cart-item a {
+	display: block;
+}
+footer ul.woocommerce-mini-cart li.woocommerce-mini-cart-item .quantity {
+    float: right;
+    width: auto;
+}
+footer ul.woocommerce-mini-cart li.woocommerce-mini-cart-item a a:hover,
+footer .widget_shopping_cart_content .buttons a:hover,
+.fusion-footer-widget-area ul li a:hover {
+	color: #99c569;
+}
+
+/*---------------- RESPONSIVE ----------------*/
+/*--------------------------------------------*/
+@media (min-width: 801px) and (max-width: 950px) {
+
+	form.checkout #billing_address_1_field,
+	form.checkout #billing_postcode_field,
+	form.checkout #shipping_address_1_field,
+	form.checkout #shipping_postcode_field,
+	form.checkout #billing_phone_field,
+	form.checkout #shipping_phone_field,
+	.woocommerce-address-fields #billing_first_name_field,
+	.woocommerce-address-fields #billing_address_1_field,
+	.woocommerce-address-fields #billing_postcode_field,
+	.woocommerce-address-fields #billing_phone_field,
+	.woocommerce-address-fields #shipping_first_name_field,
+	.woocommerce-address-fields #shipping_address_1_field,
+	.woocommerce-address-fields #shipping_postcode_field,
+	.woocommerce-address-fields #shipping_phone_field,
+	form.checkout #billing_address_2_field,
+	form.checkout #billing_city_field,
+	form.checkout #shipping_address_2_field,
+	form.checkout #shipping_city_field,
+	form.checkout #billing_email_field,
+	form.checkout #shipping_email_field,
+	.woocommerce-address-fields #billing_last_name_field,
+	.woocommerce-address-fields #billing_address_2_field,
+	.woocommerce-address-fields #billing_city_field,
+	.woocommerce-address-fields #billing_email_field,
+	.woocommerce-address-fields #shipping_last_name_field,
+	.woocommerce-address-fields #shipping_address_2_field,
+	.woocommerce-address-fields #shipping_city_field,
+	.woocommerce-address-fields #shipping_email_field,
+	form.woocommerce-EditAccountForm .woocommerce-form-row--first.form-row-first,
+	form.woocommerce-EditAccountForm .woocommerce-form-row--last.form-row-last {
+		float: none;
+	    width: 100%;
+	}
+}
+
+@media (max-width: 700px) {
+
+	form.checkout #billing_address_1_field,
+	form.checkout #billing_postcode_field,
+	form.checkout #shipping_address_1_field,
+	form.checkout #shipping_postcode_field,
+	form.checkout #billing_phone_field,
+	form.checkout #shipping_phone_field,
+	.woocommerce-address-fields #billing_first_name_field,
+	.woocommerce-address-fields #billing_address_1_field,
+	.woocommerce-address-fields #billing_postcode_field,
+	.woocommerce-address-fields #billing_phone_field,
+	.woocommerce-address-fields #shipping_first_name_field,
+	.woocommerce-address-fields #shipping_address_1_field,
+	.woocommerce-address-fields #shipping_postcode_field,
+	.woocommerce-address-fields #shipping_phone_field,
+	form.checkout #billing_address_2_field,
+	form.checkout #billing_city_field,
+	form.checkout #shipping_address_2_field,
+	form.checkout #shipping_city_field,
+	form.checkout #billing_email_field,
+	form.checkout #shipping_email_field,
+	.woocommerce-address-fields #billing_last_name_field,
+	.woocommerce-address-fields #billing_address_2_field,
+	.woocommerce-address-fields #billing_city_field,
+	.woocommerce-address-fields #billing_email_field,
+	.woocommerce-address-fields #shipping_last_name_field,
+	.woocommerce-address-fields #shipping_address_2_field,
+	.woocommerce-address-fields #shipping_city_field,
+	.woocommerce-address-fields #shipping_email_field,
+	form.woocommerce-EditAccountForm .woocommerce-form-row--first.form-row-first,
+	form.woocommerce-EditAccountForm .woocommerce-form-row--last.form-row-last {
+		float: none;
+	    width: 100%;
+	}
 }

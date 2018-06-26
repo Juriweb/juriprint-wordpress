@@ -18,6 +18,11 @@
 
 			// On declare un nouveau jQuery dernière version grace au CDN de Google
 			wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js','',false,true);
+
+			// on retire le script checkout.js appelé par woocommerce
+			wp_dequeue_script( 'wc_checkout');
+			// on ajoute juriprint.js qui est une reprise de woocommerce checkout.js avec des modifs
+			wp_enqueue_script( 'customjuriprint', get_stylesheet_directory_uri() . '/juriprint.js', array( 'jquery' ));
 	
 	}
 
@@ -60,12 +65,17 @@ add_filter( 'wc_product_sku_enabled', '__return_false' );
 // -------------------------Woocommerce --------------------------
 
 //--------------- Afficher préfixe
-//  après le prix classique "A partir de"
-/*add_filter( 'wc_price', 'ajout_suffixe_get_price_html', 10, 2 );
+//  après le prix classique "A partir de" sur pages listing produits
+/*
+add_filter( 'wc_price', 'ajout_suffixe_get_price_html', 10, 2 );
 function ajout_suffixe_get_price_html( $price, $product ){
-    return $price.' <small class="woocommerce-price-suffix">HT</small>';
-}*/
-
+	if ( is_page('8632') || is_page('8634') ) { // page produits huissier ou page produits avocat
+	   	return $price.' <small class="woocommerce-price-suffix">HT</small>';
+	} else {
+		return $price;
+	}
+}
+*/
 
 // dans le panier Afficher préfixe TTC total
 /*
@@ -108,4 +118,47 @@ function custom_override_default_address_fields( $address_fields ) {
      $address_fields['address_2']['label'] = 'Compl&eacute;ment d&rsquo;adresse';
      return $address_fields;
 }
+
+// Ajout Tab création - retirage
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
+function woo_new_product_tab( $tabs ) {	
+	$tabs['creation_retirage'] = array(
+		'title' 	=> __( 'Cr&eacute;ation / Retirage', 'woocommerce' ),
+		'priority' 	=> 20,
+		'callback' 	=> 'woo_new_product_tab_content'
+	);
+	return $tabs;
+}
+function woo_new_product_tab_content() {
+	echo '<h2>Qu\'est-ce que la <strong>Cr&eacute;ation</strong></h2>';
+	echo '<p>La cr&eacute;ation signifie que nous utilisons un logiciel graphique afin de concevoir votre visuel ou pour en modifier un d&eacute;j&agrave; existant.</p>';
+	echo '<br/>';
+	echo '<h2>Qu\'est-ce que le  <strong>Retirage</strong></h2>';
+	echo '<p>Le retirage signifie que nous utilisons le dernier fichier en notre possession, ou celui que vous nous fournirez, sans avoir recours &agrave; un logiciel graphique tiers, afin d\'imprimer vos visuels.</p>';	
+}
+
+// Bouton retirage dans la liste des commandes
+function cs_add_order_again_to_my_orders_actions( $actions, $order ) {
+	if ( $order->has_status( 'completed' ) ) {
+		$actions['order-again'] = array(
+			'url'  => wp_nonce_url( add_query_arg( 'order_again', $order->id ) , 'woocommerce-order_again' ),
+			'name' => __( 'Retirage' )
+		);
+	}
+	return $actions;
+}
+add_filter( 'woocommerce_my_account_my_orders_actions', 'cs_add_order_again_to_my_orders_actions', 50, 2 );
+
+// traduction articles dans le panier
+function action_woocommerce_before_cart_table( $args ) {
+	global $woocommerce;
+	?>
+			<?php if ( 1 == $woocommerce->cart->get_cart_contents_count() ) : ?>
+				<h2><?php printf( esc_attr__( 'Vous avez %d article dans votre panier' ), $woocommerce->cart->get_cart_contents_count() );  ?></h2>
+			<?php else : ?>
+				<h2><?php printf( esc_attr__( 'Vous avez %d articles dans votre panier' ), $woocommerce->cart->get_cart_contents_count() );  ?></h2>
+			<?php endif; 
+}
+add_action( 'woocommerce_before_cart_table', 'action_woocommerce_before_cart_table', 10, 0 ); 
+
 

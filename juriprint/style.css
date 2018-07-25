@@ -1,6 +1,6 @@
 /*
 Theme Name: Juriprint
-Description: ThËme enfant pour Avada
+Description: Th√®me enfant pour Avada
 Author: Juriprint
 Template: Avada
 Text Domain:  juriprint
@@ -23,9 +23,9 @@ li.active a{
 	color:#F00 !important;
 }
 a, button {
-	transition-property: all;
-    transition-duration: .2s;
-    transition-timing-function: linear;
+	transition-property: all !important;
+    transition-duration: .3s !important;
+    transition-timing-function: linear !important;
 }
 #comment-input .placeholder,
 #comment-input input,
@@ -109,7 +109,7 @@ a.bright-effect:hover  {
 	float: left;
 	padding: 0 8px;
 	transition-property: all;
-    transition-duration: .2s;
+    transition-duration: .3s;
     transition-timing-function: linear;
 }
 .fusion-secondary-menu .fusion-menu-cart-checkout .fusion-menu-cart-link:hover ,
@@ -122,6 +122,19 @@ a.bright-effect:hover  {
 .fusion-secondary-menu .fusion-custom-menu-item-contents {
     width: 100%;
 }
+
+/* icone account */
+.fusion-menu-login-box a span.menu-text:before {
+	content: "\f007";
+	font: normal normal normal 14px/1 FontAwesome;
+	display: inline-block;
+    width: 26px;
+}
+.fusion-secondary-menu-icon .menu-text:before,
+.fa-th:before {
+	font-size: 14px !important;
+}
+
 /*--------------------SLIDER---------------------*/
 /*----------------------------------------------*/
 
@@ -136,8 +149,8 @@ a.bright-effect:hover  {
     background: rgba(0, 0, 0, 0.4);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
-/*masquer ce genre d'infos en dessous du produit CatÈgories : Cartes de visite, Huissier, Pack carte de visite
-…tiquettes : carte de visite, huissier*/
+/*masquer ce genre d'infos en dessous du produit Cat√©gories : Cartes de visite, Huissier, Pack carte de visite
+√âtiquettes : carte de visite, huissier*/
 /* hide SKU on product meta section */
 .product_meta .sku_wrapper {
 	display:none;
@@ -151,7 +164,7 @@ a.bright-effect:hover  {
 	display:none;
 }
 
-/* hide quantitÈ dÈsirÈe et dÈtails en dessous produits */
+/* hide quantit√© d√©sir√©e et d√©tails en dessous produits */
 .product .product-buttons, .product-excerpt .product-buttons{
 	display:none !important;
 }
@@ -167,7 +180,7 @@ a.bright-effect:hover  {
     padding-top: 0 !important;
 }
 
-/*numÈro de tel et mail  en haut sur une ligne dÈsormais */
+/*num√©ro de tel et mail  en haut sur une ligne d√©sormais */
 @media only screen and (max-width: 800px){
 	.fusion-contact-info {
 			padding: 1em 0 !important;
@@ -181,7 +194,7 @@ a.bright-effect:hover  {
 body.single-product  #content > .woocommerce-message:first-child{
 	color:#8bb93a;
 }
-/*si pas de produit trouvÈ pour la variation demandÈe*/
+/*si pas de produit trouv√© pour la variation demand√©e*/
 .wc-no-matching-variations.woocommerce-info  {
 	color:#900;
 }
@@ -199,7 +212,7 @@ form.cart{
 	background: -webkit-linear-gradient(to top, rgb(234, 234, 234) 20%, rgb(247, 247, 247) 50%);
 	background: linear-gradient(to top, rgb(234, 234, 234) 20%, rgb(247, 247, 247) 50%);
 }
-/*pour supprimer le retour et Èviter de casser les colonnes qui s'affichent selon le choix   */
+/*pour supprimer le retour et √©viter de casser les colonnes qui s'affichent selon le choix   */
 .tm-extra-product-options .cpfclear{
 	display: none;
 }
@@ -220,7 +233,7 @@ form.cart{
 .tm-extra-product-options .tmcp-textfield.tm-epo-field {
     width: 100%;
 }
-/* -liste des images ‡ cocher- */
+/* -liste des images √† cocher- */
 /*.tm-extra-product-options ul.tmcp-elements.use_images_containter li.tmcp-field-wrap {*/
 .tm-extra-product-options ul.tmcp-elements.use_images_containter li.tmcp-field-wrap{
     display: inline-block;
@@ -256,12 +269,12 @@ form.woocommerce-cart-form .woocommerce-Price-amount:after,
 }
 /* Position du texte description sous la photo produit  */
 .post-content.woocommerce-product-details__short-description {
-	padding-top: 100px;
+	padding-top: 30px;
     float: none;
     clear: both
 }
 
-/* Hide section produits reliÈs */
+/* Hide section produits reli√©s */
 section.related.products {
 	display: none;
 }
@@ -271,6 +284,121 @@ section.related.products {
 table.variations select {
 	color: #99C569 ;
 }
+
+/* separateur options */
+.tm-extra-product-options .tm-cell hr {
+    height: 4px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-top: 1px solid #e7e6e6;
+    border-bottom: 1px solid #e7e6e6;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-left: none;
+    border-right: none;
+}
+#woosvi_strap.woosvi_images {
+	border-bottom: 4px double #e7e6e6;
+}
+.fusion-body .fusion-content-sep.sep-double, .fusion-body .fusion-separator.sep-double {
+    height: 2px !important;
+ }
+
+/* btn upload */
+.tc-extra-product-options .tmcp-field-wrap label.cpf-upload-container {
+	background: #d1e990;
+    text-transform: uppercase;
+    background-image: -webkit-gradient( linear, left bottom, left top, from( #aad75b ), to( #d1e990 ) );
+    background-image: linear-gradient( to top, #aad75b, #d1e990 );
+    background-image: -webkit-linear-gradient( to top, #aad75b, #d1e990 );
+    background-image: -moz-linear-gradient( to top, #aad75b, #d1e990 );
+    background-image: -ms-linear-gradient( to top, #aad75b, #d1e990 );
+    background-image: -o-linear-gradient( to top, #aad75b, #d1e990 );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d1e990, endColorstr=#aad75b);
+    transition: all .3s;
+    border-width: 0px;
+    border-style: solid;
+    border-color: #6e9a1f;
+    border-radius: 2px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    -webkit-border-radius: 2px;
+    font-family: "PT Sans", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #6e9a1f;
+    font-size: 13px;
+    text-align: center;
+}
+.tc-extra-product-options .tmcp-field-wrap label.cpf-upload-container:hover {
+	background: #aad75b;
+    color: #6e9a1f;
+    background-image: -webkit-gradient( linear, left bottom, left top, from( #d1e990 ), to( #aad75b ) );
+    background-image: linear-gradient( to top, #d1e990, #aad75b );
+    background-image: -webkit-linear-gradient( to top, #d1e990, #aad75b );
+    background-image: -moz-linear-gradient( to top, #d1e990, #aad75b );
+    background-image: -ms-linear-gradient( to top, #d1e990, #aad75b );
+    background-image: -o-linear-gradient( to top, #d1e990, #aad75b );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d1e990, endColorstr=#aad75b);
+
+}
+
+/* Hide 2nd selectbox quand condition li√©e au choix du 1er select */
+/* Page tampon */
+#product-2575 form.variations_form table.variations tr:nth-child(2) {
+	display: none;
+}
+/* addClass Jquery pour √©craser le style des options dans un select pour les variations */
+.custom-select-option {
+	background: #99C569 !important;
+	color: white !important;
+}
+/* hide legende sous l'input t√©l√©phone sur les fiches produit */ 
+.num-tel-rappel + span.tc-chars {
+	display: none;
+}
+
+/* photo non contractuelle */
+#woosvi_strap:after {
+	content:'Photo non contractuelle';
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+	padding: 3px 5px;
+	background: #99c569;
+	font-size: 10px;
+}
+
+/* Alignement du prix et bouton ajouter au panier */
+.tm-custom-price-totals .tm-final-totals,
+#tm-epo-totals,
+.single_variation_wrap .woocommerce-variation-add-to-cart {
+	display: inline-block !important;
+}
+.single_variation_wrap .woocommerce-variation-add-to-cart {
+	vertical-align: middle; 
+	margin-left: 30px;
+}
+dt.tm-final-totals:after {
+	content: '\2192';
+	display: inline-block;
+	margin: 0 10px;
+}
+
+/* mise en forme titre options */
+.tm-extra-product-options .tm-epo-field-label {
+    display: inline-block;
+    width: auto;
+	color: white;
+	padding: 5px 10px;
+	background: #99c569;
+}
+.tm-epo-required {
+    margin-right: 5px;
+}
+
 
 /*--------------------Page PANIER---------------------*/
 /*----------------------------------------------*/
@@ -286,11 +414,11 @@ table.variations select {
 .wc-proceed-to-checkout a.fusion-update-cart {
 	display: none;
 }
-/* Hide colonnes qtÈ + total sur popup dÈtails personnalisation */
+/* Hide colonnes qt√© + total sur popup d√©tails personnalisation */
 #flasho .cpf-quantity, #flasho .cpf-total-price {
 	display: none;
 }
-/* tailles des colonnes sur popup dÈtails personnalisation */
+/* tailles des colonnes sur popup d√©tails personnalisation */
 #flasho .tm-extra-product-options .col-2 {
 	width: 20% !important;
 }
@@ -314,6 +442,21 @@ form.woocommerce-cart-form th.product-price {
 form.woocommerce-cart-form .shop_table .product-name {
 	width: 70%;
 }
+.shop_table tr.avada-cart-actions {
+	display: none;
+}
+.shop_table td,
+.shop_table th {
+    padding: 10px 0 !important;
+}
+.fusion-body .cart_totals h2,
+.woocommerce-MyAccount-content form h3,
+.woocommerce-MyAccount-content h2,
+.woocommerce-content-box h2 {
+	padding-bottom: 10px !important;
+	margin-bottom: 10px !important;
+}
+
 /*------------------ Page PAIEMENT ------------------*/
 /*----------------------------------------------*/
 
@@ -321,7 +464,7 @@ form.woocommerce-cart-form .shop_table .product-name {
 	color:#666 !important;
 	font-size: 1em !important;
 }
-/*dÈtail commande*/
+/*d√©tail commande*/
 dt[class|="variation"]{
 	font-weight:bold;
 }
@@ -339,7 +482,7 @@ dt[class|="variation"]{
 	padding: 10px 0 !important;
 }
 
-/*Message : Vous avez dÈj‡ un compte ? Cliquez ici pour vous connecter*/
+/*Message : Vous avez d√©j√† un compte ? Cliquez ici pour vous connecter*/
 .woocommerce-checkout .woocommerce-info{
 	background-color: #f6f6f6;
 }
@@ -425,6 +568,75 @@ form.woocommerce-EditAccountForm .woocommerce-form-row--last.form-row-last {
     width: 48%;
 }
 
+.my_account_orders .woocommerce-orders-table__cell-order-actions a {
+	display: inline-block !important;
+	margin: 0 5px;
+	width: 15px; 
+	height: 20px;
+	position: relative;
+}
+.my_account_orders .woocommerce-orders-table__cell-order-actions a.view:after {
+	position: absolute;
+    font-family: Dashicons;
+    content: "\f177";
+    color: inherit;
+ }
+.my_account_orders .woocommerce-orders-table__cell-order-actions a.invoice:after {
+	position: absolute;
+
+    font-family: Dashicons;
+    content: "\f491";
+    color: inherit;
+ }
+ .my_account_orders .woocommerce-orders-table__cell-order-actions a.order-again:after {
+	position: absolute;
+
+    font-family: Dashicons;
+    content: "\f531";
+    color: inherit;
+ }
+.avada-order-details .shop_table.order_details tfoot tr th {
+	padding: 5px 30px 5px 0 !important;
+}
+.avada-order-details .shop_table.order_details tfoot tr td {
+    padding: 5px 0 !important;
+}
+.avada-order-details .shop_table.order_details tfoot tr:last-child td {
+	padding-top: 0 !important;
+}
+
+
+/*---------------- ADD TO CART POPUP ------------------*/
+/*-----------------------------------------------------*/
+.xoo-cp-pprice, 
+.xoo-cp-pqty {
+	display: none;
+}
+.xoo-cp-variations dl.variation:nth-child(1) {
+	display: none;
+}
+.xoo-cp-variations dl.variation dt,
+.xoo-cp-variations dl.variation dd {
+	margin: 0;
+	width: 50%;
+}
+.xoo-cp-variations .variation dd p {
+	margin: 0;
+}
+.xoo-cp-ptitle .xoo-cp-variations a.tm-cart-link {	
+    font-weight: 500;
+    font-size: 14px;
+}
+.xoo-cp-success {
+	background: transparent;
+	border: 0px solid transparent;
+}
+.xoo-cp-atcn {
+	margin: 0 0 15px 0;
+}
+.xcp-btn:hover {
+	background: #8BB93A;
+}
 /*---------------- FOOTER ------------------*/
 /*------------------------------------------*/
 
@@ -461,6 +673,24 @@ footer .widget_shopping_cart_content .buttons a:hover,
 
 /*---------------- RESPONSIVE ----------------*/
 /*--------------------------------------------*/
+
+@media (min-width: 801px) {
+	/* page r√©f√©rences */
+	.avada_portfolio .fusion-flexslider.fusion-post-slideshow {
+	    width: 66%;
+	    float: left;
+	}
+	.avada_portfolio .project-content {
+	    width: 30%;
+	    margin-left: 3%;
+	    float: left;
+	}
+	.project-content .project-description,
+	.project-content .project-info {
+	    width: 100%;
+	}
+}
+
 @media (min-width: 801px) and (max-width: 950px) {
 
 	form.checkout #billing_address_1_field,

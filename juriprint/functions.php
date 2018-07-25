@@ -22,6 +22,7 @@
 			// on retire le script checkout.js appelé par woocommerce
 			wp_dequeue_script( 'wc_checkout');
 			// on ajoute juriprint.js qui est une reprise de woocommerce checkout.js avec des modifs
+			wp_enqueue_script( 'customjuriprintcheckout', get_stylesheet_directory_uri() . '/juriprintcheckout.js', array( 'jquery' ));
 			wp_enqueue_script( 'customjuriprint', get_stylesheet_directory_uri() . '/juriprint.js', array( 'jquery' ));
 	
 	}
@@ -29,11 +30,14 @@
 //}
 
 
+/* 
 function avada_lang_setup() {
 	$lang = get_stylesheet_directory() . '/languages';
-	load_child_theme_textdomain( 'Avada', $lang );
+	load_theme_textdomain( 'Avada', $lang );
 }
 add_action( 'after_setup_theme', 'avada_lang_setup' );
+*/
+
 
 
 // modifier l'expéditeur des mails recu par les utilisateurs
@@ -93,6 +97,13 @@ function subtotal_custom_price_message( $price ) {
 }
 */
 
+// redefinition du nombre de variations
+function wpse_rest_batch_items_limit( $limit ) {
+    $limit = 200;
+    return $limit;
+}
+add_filter( 'woocommerce_rest_batch_items_limit', 'wpse_rest_batch_items_limit' );
+
 //--------------Suppression nombre d'exemplaires
 function wc_remove_all_quantity_fields( $return, $product ) {
     return true;
@@ -149,6 +160,7 @@ function cs_add_order_again_to_my_orders_actions( $actions, $order ) {
 }
 add_filter( 'woocommerce_my_account_my_orders_actions', 'cs_add_order_again_to_my_orders_actions', 50, 2 );
 
+
 // traduction articles dans le panier
 function action_woocommerce_before_cart_table( $args ) {
 	global $woocommerce;
@@ -161,4 +173,34 @@ function action_woocommerce_before_cart_table( $args ) {
 }
 add_action( 'woocommerce_before_cart_table', 'action_woocommerce_before_cart_table', 10, 0 ); 
 
+// Override add-to-cart plugin
+// ajout d'une redirection sur le bouton "continue shopping" vers la page catalogue : ID = 44
+function xoo_cp_popup_override(){
+	global $woocommerce;
+	$cart_url 		= $woocommerce->cart->get_cart_url();
+	$checkout_url 	= $woocommerce->cart->get_checkout_url();
+	?>
+	<div class="xoo-cp-opac"></div>
+	<div class="xoo-cp-modal">
+		<div class="xoo-cp-container">
+			<div class="xoo-cp-outer">
+				<div class="xoo-cp-cont-opac"></div>
+				<i class="xcp-icon xcp-icon-spinner2 xcp-outspin"></i>
+			</div>
+			<i class="xcp-icon-cross xcp-icon xoo-cp-close"></i>
+
+			<div class="xoo-cp-atcn"></div>
+
+			<div class="xoo-cp-content"></div>
+				
+			<div class="xoo-cp-btns">
+				<a class="xoo-cp-btn-vc xcp-btn" href="<?php echo $cart_url; ?>"><?php _e('View Cart','added-to-cart-popup-woocommerce'); ?></a>
+				<a class="xoo-cp-btn-ch xcp-btn" href="<?php echo $checkout_url; ?>"><?php _e('Checkout','added-to-cart-popup-woocommerce'); ?></a>
+				<a class="xoo-cp-btn-cs xcp-btn" href="<?php echo esc_url( get_page_link( 44 ) ); ?>"><?php _e('Continue Shopping','added-to-cart-popup-woocommerce'); ?></a>
+			</div>
+		</div>
+	</div>
+	<?php
+}
+add_action('wp_footer','xoo_cp_popup_override');
 
